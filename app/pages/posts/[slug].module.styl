@@ -1,0 +1,40 @@
+@import "../../styles/_shared";
+.container { }
+.wrapper {
+	display: flex;
+	flex-direction: row;
+}
+.previews {
+	width: 70%;
+}
+.details {
+	width: 30%;
+
+	> h1 {
+		font-size: 3rem;
+		color: #428BCA;
+		font-weight: 500;
+	}
+}
+.sites {
+	display: flex;
+
+	> li {
+		display: block;
+		position: relative;
+
+		& + li {
+			margin-left: 1rem;
+
+			&::before {
+				display: block;
+				content: "";
+				width: 2px;
+				height: 2px;
+				absolute(50%, null, null, -0.5rem);
+				transform: translate(0, -50%);
+				background-color: white;
+			}
+		}
+	}
+}

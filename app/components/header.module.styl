@@ -1,0 +1,84 @@
+@import "../styles/_shared";
+.container {
+	display: flex;
+	flex-direction: row-reverse;
+	justify-content: space-between;
+	sticky(0, 0, null, 0);
+	height: 5rem;
+	padding: 0.2rem 2rem;
+	z-index: 100;
+
+	.background {
+		display: flex;
+		align-items: center;
+		padding: 0 2rem;
+		absolute(0);
+		background-color: rgba(#262626, 0.95);
+		transition: 0.5s ease-in-out transform;
+		z-index: 0;
+	}
+
+	.logo {
+		display: flex;
+		align-items: center;
+
+		> .icon {
+			width: 3rem;
+		}
+
+		> h1 {
+			font-size: 2rem;
+			margin-left: 1rem;
+		}
+	}
+
+	.nav {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		margin-top: 20px;
+		transition: 0.2s margin linear;
+		z-index: 20;
+
+		> a {
+			font-size: 1.5rem;
+			font-weight: bold;
+			
+			&:nth-child(n+2) {
+				margin-left: 2.5rem;
+			}
+
+			&.selected {
+				color: #DD0505;
+			}
+		}
+	}
+
+	&.unscrolled {
+		> .background {
+			transform: translateY(-100%);
+		}
+	}
+
+	&.scrolled {
+		> .background {
+			transform: translate(0);
+		}
+
+		> .nav {
+			margin-top: 0;
+		}
+	}
+
+	// mobile-only overrides
+	+mobile() {
+		height: 4rem;
+		padding: 0.5rem 1rem;
+
+		> .nav {
+			> a + a + a {
+				display: none;
+			}
+		}
+	}
+}

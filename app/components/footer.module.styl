@@ -1,0 +1,17 @@
+@import "../styles/_shared";
+.container {
+	display: flex;
+	flex-direction: row;
+	align-items: stretch;
+	justify-content: space-around;
+	padding: 1rem 0;
+	position: sticky;
+	bottom: 0;
+	background-color: #262626;
+	color: #FFFFFF;
+
+	// mobile-only overrides
+	+mobile() {
+		position: relative;
+	}
+}

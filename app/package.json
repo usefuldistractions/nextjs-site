@@ -1,0 +1,35 @@
+{
+  "name": "nextjs-site",
+  "version": "0.0.0",
+  "description": "A template repository for spinning up a NextJS development / deployment image.",
+  "main": "index.js",
+  "scripts": {
+    "deploy": "next build && next start",
+    "dev": "next",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint ./components/** ./pages/** -c .eslintrc.json --fix --ext js,jsx"
+  },
+  "keywords": [],
+  "author": "JP Cutter",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-eslint": "^10.0.3",
+    "eslint": "^6.5.1",
+    "eslint-config-prettier": "^6.4.0",
+    "eslint-loader": "^3.0.2",
+    "eslint-plugin-prettier": "^3.1.1",
+    "eslint-plugin-react": "^7.16.0",
+    "prettier": "1.18.2",
+    "webpack": "^4.41.1"
+  },
+  "dependencies": {
+    "@zeit/next-stylus": "^1.0.1",
+    "lodash": "^4.17.15",
+    "next": "^9.2.2",
+    "react": "^16.13.0",
+    "react-dom": "^16.13.0",
+    "react-icomoon": "^2.0.3",
+    "stylus": "^0.54.7"
+  }
+}

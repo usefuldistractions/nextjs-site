@@ -1,0 +1,64 @@
+/**
+* Mixins
+*/
+mobile() {
+	@media only screen and (max-width: 639px) {
+		{block}
+	}
+}
+
+checkDimension($value) {
+	$value != null and $value != false and $value != undefined
+}
+
+clockwise($top, $right, $bottom, $left) {
+	if checkDimension($top) {
+		top: $top;
+	}
+
+	if checkDimension($right) { // a right property was provided
+		right: $right;
+	} else if $right == false and checkDimension($top) { // and checkDimension($top) { // defer to only value, if passed
+		right: $top;
+	}
+
+	if checkDimension($bottom) { // bottom property was provided
+		bottom: $bottom;
+	} else if $bottom == false { // no argument, check for value to inherit
+		if checkDimension($top) { // defer to top
+			bottom: $top;
+		}
+	}
+
+	if checkDimension($left) { // left property was provided
+		left: $left;
+	} else if $left == false { // no argument, check for value to inherit
+		if checkDimension($right) {
+			left: $right; // 'opposite' value was passed in
+		} else if $right == false { // no argument, check for value to inherit
+			if checkDimension($top) { // single value was passed in for all
+				left: $top; // use top
+			}
+		}
+	}
+}
+
+absolute($top = false, $right = false, $bottom = false, $left = false) {
+	position: absolute;
+	clockwise($top, $right, $bottom, $left);
+}
+
+fixed($top = false, $right = false, $bottom = false, $left = false) {
+	position: fixed;
+	clockwise($top, $right, $bottom, $left);
+}
+
+relative($top = false, $right = false, $bottom = false, $left = false) {
+	position: relative;
+	clockwise($top, $right, $bottom, $left);
+}
+
+sticky($top = false, $right = false, $bottom = false, $left = false) {
+	position: sticky;
+	clockwise($top, $right, $bottom, $left);
+}

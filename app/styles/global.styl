@@ -1,0 +1,81 @@
+@import "./_shared";
+
+/**
+* Font includes
+*/
+@import url("https://fonts.googleapis.com/css?family=Abel|Roboto:300,700&display=swap");
+
+/**
+* Icon includes
+*/
+@import "../icomoon/style.css";
+
+/**
+* Global styles
+*/
+* {
+	margin: 0;
+	padding: 0;
+	border: none;
+	box-sizing: border-box;
+}
+
+html {
+	font-size: 12px;
+	font-family: "Abel", sans-serif;
+}
+
+body {
+	background-color: #000000;
+	color: #FFFFFF;
+}
+
+h1, h2, h3 {
+	text-transform: uppercase;
+	font-family: "Roboto", sans-serif;
+	font-weight: 700;
+}
+
+h1 {
+	font-size: 5rem;
+}
+
+h2 {
+	font-size: 3rem;
+}
+
+a {
+	transition: 0.2s linear color;
+	text-decoration: none;
+	color: #8B8B8B;
+
+	&:hover {
+		color: #EEEEEE;
+	}
+}
+
+ul {
+	list-style-type: none;
+}
+
+p {
+	font-size: 1.2rem;
+	margin-bottom: 1.5rem;
+
+	&:last-child {
+		margin-bottom: 0;
+	}
+}
+
+.hideMobile {
+	display: none;
+}
++mobile() {
+	.hideMobile {
+		display: flex;
+	}
+	
+	.hideDesktop {
+		display: none;
+	}
+}
